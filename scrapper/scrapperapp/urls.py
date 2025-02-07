@@ -3,8 +3,8 @@ from rest_framework.routers import DefaultRouter
 from scrapperapp.views import PingResultViewSet
 
 router = DefaultRouter()
-router.register(r'ping-results', PingResultViewSet)
+router.register(r"ping-results", PingResultViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),  # API route ekledik
+    path("", include(router.urls)),
 ]

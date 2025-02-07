@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class PingResult(models.Model):
     location = models.CharField(max_length=255)
     ip_address = models.CharField(max_length=255)

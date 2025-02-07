@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import PingResult
+from scrapperapp.models import PingResult
+
 
 class PingResultSerializer(serializers.ModelSerializer):
     class Meta:
         model = PingResult
-        fields = '__all__'
+        fields = "__all__"

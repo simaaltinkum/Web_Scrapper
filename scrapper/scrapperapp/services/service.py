@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from scrapperapp.models import PingResult
 
+
 def scrape_and_save():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
@@ -27,7 +28,7 @@ def scrape_and_save():
                 location=row_data[0],
                 ip_address=row_data[1],
                 status=row_data[2],
-                response_time=row_data[3]
+                response_time=row_data[3],
             )
 
     driver.quit()
