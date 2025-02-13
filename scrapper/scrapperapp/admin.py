@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import PingResult, Domain
 
-# Register your models here.
+admin.site.register(PingResult)
+admin.site.register(Domain)

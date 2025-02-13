@@ -1,10 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from scrapperapp.views import PingResultViewSet
+from .views import PingResultView
 
-router = DefaultRouter()
-router.register(r"ping-results", PingResultViewSet)
+"""router = DefaultRouter()
+router.register(r'ping-results', PingResultViewSet, basename='ping-result')
+router.register(r'domains', DomainViewSet, basename='domain')"""
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path("post/", PingResultView.as_view(), name="post"),
+    path("get/", PingResultView.as_view(), name="get"),
 ]
