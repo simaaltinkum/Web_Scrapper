@@ -29,7 +29,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -52,9 +51,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-CRONJOBS = [
-    ('*/5 * * * *', 'scrapperapp.cron.ScrapeCronJob.do')
-]
+CRONJOBS = [("*/5 * * * *", "scrapperapp.cron.ScrapeCronJob.do")]
 
 ROOT_URLCONF = "scrapper.urls"
 

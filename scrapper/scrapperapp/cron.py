@@ -2,6 +2,7 @@ from django_cron import CronJobBase, Schedule
 from scrapperapp.services.service import scrape_and_save
 from scrapperapp.models import Domain
 
+
 class ScrapeCronJob(CronJobBase):
     RUN_EVERY_MINS = 60
     schedule = Schedule(run_every_mins=RUN_EVERY_MINS)
