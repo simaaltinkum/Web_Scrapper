@@ -10,6 +10,7 @@ from scrapperapp.services.service import scrape_and_save
 class PingResultView(APIView):
     def post(self, request):
         host = request.data.get("domain")
+        request_type = request.data.get("type")
 
         if not host:
             return Response(
@@ -17,8 +18,15 @@ class PingResultView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
+        if not request_type:
+            print(request_type)
+            return Response(
+                {"error": "Type bilgisi gereklidir."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         try:
-            results = scrape_and_save(host)
+            results = scrape_and_save(host, request_type)
             return Response(
                 {"message": "Veriler başarıyla kaydedildi.", "data": results},
                 status=status.HTTP_200_OK,

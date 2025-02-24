@@ -5,20 +5,13 @@ from scrapperapp.models import PingResult, Domain
 class DomainSerializer(serializers.ModelSerializer):
     class Meta:
         model = Domain
-        fields = ["id", "name", "created_at"]
+        fields = ["id", "name", "created_at", "type"]
 
 
 class PingResultSerializer(serializers.ModelSerializer):
-    domain = DomainSerializer(read_only=True)
-
     class Meta:
         model = PingResult
-        fields = [
-            "id",
-            "domain",
-            "location",
-            "ip_address",
-            "status",
-            "response_time",
-            "created_at",
-        ]
+        fields = ["id", "domain", "data"]
+
+    domain = serializers.CharField(source="domain.name", read_only=True)
+    data = serializers.ListField(child=serializers.CharField(), required=True)
